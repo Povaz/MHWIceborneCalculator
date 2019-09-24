@@ -47,61 +47,88 @@ def setweapon(tickboxes, i):
     print(current_motionvalue)
 
 
+def sharpnessbuttons():
+    row = 9
+    column = 0
+
+    purplebutton = Button(rightframe, bg='purple')
+    purplebutton.grid(row=row, column=column, sticky=N+S+E+W)
+
+    whitebutton = Button(rightframe, bg='white')
+    whitebutton.grid(row=row, column=column+1, sticky=N+S+E+W)
+
+    bluebutton = Button(rightframe, bg='blue')
+    bluebutton.grid(row=row, column=column+2, sticky=N+S+E+W)
+
+    greenbutton = Button(rightframe, bg='green')
+    greenbutton.grid(row=row, column=column+3, sticky=N+S+E+W)
+
+    yellowbutton = Button(rightframe, bg='yellow')
+    yellowbutton.grid(row=row, column=column+4, sticky=N+S+E+W)
+
+    redbutton = Button(rightframe, bg='red')
+    redbutton.grid(row=row, column=column+5, sticky=N+S+E+W)
+
+
 def managerightframe():
+
+
     rawdam = DoubleVar()
     rawdam_label = Label(rightframe, text="Raw Damage Value: ")
-    rawdam_label.grid(row=0, column=0)
+    rawdam_label.grid(row=0, column=0, columnspan=3)
     rawdam_entry = Entry(rightframe, textvariable=rawdam)
-    rawdam_entry.grid(row=0, column=1)
+    rawdam_entry.grid(row=0, column=3, columnspan=3)
 
     elemdam = DoubleVar()
     elemdam_label = Label(rightframe, text="Elemental Damage Value: ")
-    elemdam_label.grid(row=1, column=0)
+    elemdam_label.grid(row=1, column=0, columnspan=3)
     elemdam_entry = Entry(rightframe, textvariable=elemdam)
-    elemdam_entry.grid(row=1, column=1)
+    elemdam_entry.grid(row=1, column=3, columnspan=3)
 
     rawsharp = DoubleVar()
     rawsharp_label = Label(rightframe, text="Physical Sharpness Factor: ")
-    rawsharp_label.grid(row=2, column=0)
+    rawsharp_label.grid(row=2, column=0, columnspan=3)
     rawsharp_entry = Entry(rightframe, textvariable=rawsharp)
-    rawsharp_entry.grid(row=2, column=1)
+    rawsharp_entry.grid(row=2, column=3, columnspan=3)
 
     elemsharp = DoubleVar()
     elemsharp_label = Label(rightframe, text="Elemental Sharpness Factor: ")
-    elemsharp_label.grid(row=3, column=0)
+    elemsharp_label.grid(row=3, column=0, columnspan=3)
     elemsharp_entry = Entry(rightframe, textvariable=elemsharp)
-    elemsharp_entry.grid(row=3, column=1)
+    elemsharp_entry.grid(row=3, column=3, columnspan=3)
+
+    sharpnessbuttons()
 
     aff = DoubleVar()
     aff_label = Label(rightframe, text="Affinity Factor: ")
-    aff_label.grid(row=4, column=0)
+    aff_label.grid(row=4, column=0, columnspan=3)
     aff_entry = Entry(rightframe, textvariable=aff)
-    aff_entry.grid(row=4, column=1)
+    aff_entry.grid(row=4, column=3, columnspan=3)
 
     button_calc = Button(rightframe,
                          text='Calculate You Lil Shit',
                          command=lambda: damageoutput(current_motionvalue, current_bloater, rawdam_entry,
                                                       elemdam_entry, rawsharp_entry, elemsharp_entry,
                                                       aff_entry, rawtruedam, elemtruedam, truedam))
-    button_calc.grid(columnspan=2)
+    button_calc.grid(row=5, column=1, columnspan=4)
 
     rawtruedam = DoubleVar()
     rawtruedam_label = Label(rightframe, text="Physical True Damage: ")
-    rawtruedam_label.grid(row=6, column=0)
+    rawtruedam_label.grid(row=6, column=0, columnspan=3)
     rawtruedam_entry = Entry(rightframe, textvariable=rawtruedam)
-    rawtruedam_entry.grid(row=6, column=1)
+    rawtruedam_entry.grid(row=6, column=3, columnspan=3)
 
     elemtruedam = DoubleVar()
     elemtruedam_label = Label(rightframe, text="Elemental True Damage: ")
-    elemtruedam_label.grid(row=7, column=0)
+    elemtruedam_label.grid(row=7, column=0, columnspan=3)
     elemtruedam_entry = Entry(rightframe, textvariable=elemtruedam)
-    elemtruedam_entry.grid(row=7, column=1)
+    elemtruedam_entry.grid(row=7, column=3, columnspan=3)
 
     truedam = DoubleVar()
     truedam_label = Label(rightframe, text="Total True Damage: ")
-    truedam_label.grid(row=8, column=0)
+    truedam_label.grid(row=8, column=0, columnspan=3)
     truedam_entry = Entry(rightframe, textvariable=truedam)
-    truedam_entry.grid(row=8, column=1)
+    truedam_entry.grid(row=8, column=3, columnspan=3)
 
 
 def manageleftframe():
@@ -133,12 +160,22 @@ gatherdata()
 window = Tk()
 window.title("Monster Hunter World: Iceborne Calculator")
 
-leftframe = Frame(window)
+leftframe = LabelFrame(window, text="Weapon Choice")
 leftframe.pack(side=LEFT)
 manageleftframe()
 
-rightframe = Frame(window)
+rightframe = LabelFrame(window, text="Weapon Stats")
 rightframe.pack(side=RIGHT)
+index = 0
+while index < 10:
+    rightframe.rowconfigure(index, weight=1)
+    index += 1
+
+index = 0
+while index < 6:
+    rightframe.columnconfigure(index, weight=1, minsize=50)
+    index += 1
+
 managerightframe()
 
 window.mainloop()
