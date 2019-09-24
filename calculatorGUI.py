@@ -1,4 +1,5 @@
 from tkinter import *
+import utils
 
 # Monster Parameters
 elemweak = 0.25
@@ -9,6 +10,8 @@ motionvalues = []
 bloaters = []
 current_motionvalue = 0.0
 current_bloater = 1
+current_rawsharp = 0.0
+current_elemsharp = 0.0
 
 
 def damageoutput(motionvalue, bloater, rawdam_entry, elemdam_entry, rawsharp_entry, elemsharp_entry, aff_entry, rawtruedam, elemtruedam, truedam):
@@ -29,9 +32,9 @@ def damageoutput(motionvalue, bloater, rawdam_entry, elemdam_entry, rawsharp_ent
     elemtotal = (elemdam_value * elemsharp_value * motionvalue * elemweak) / bloater
     truedamage = phystotal + elemtotal
 
-    rawtruedam.set(str(round(phystotal, 2)))
-    elemtruedam.set(str(round(elemtotal, 2)))
-    truedam.set(str(round(truedamage, 2)))
+    rawtruedam.set(str(round(phystotal, 4)))
+    elemtruedam.set(str(round(elemtotal, 4)))
+    truedam.set(str(round(truedamage, 4)))
 
 
 def setweapon(tickboxes, i):
@@ -43,36 +46,39 @@ def setweapon(tickboxes, i):
             current_motionvalue = motionvalues[i]
             global current_bloater
             current_bloater = bloaters[i]
-    print(current_bloater)
-    print(current_motionvalue)
 
 
-def sharpnessbuttons():
-    row = 9
-    column = 0
+def setsharpness(color, rawsharp, elemsharp):
+    sharpvalues = [[1.39, 1.25], [1.32, 1.125], [1.2, 1.0625],
+                   [1.05, 1], [1.00, 0.75], [0.75, 0.50], [0.50, 0.25]]
+    for i in range(7):
+        if i == color:
+            print(color)
+            print(i)
+            rawsharp.set(str(sharpvalues[i][0]))
+            elemsharp.set(str(sharpvalues[i][1]))
 
-    purplebutton = Button(rightframe, bg='purple')
-    purplebutton.grid(row=row, column=column, sticky=N+S+E+W)
 
-    whitebutton = Button(rightframe, bg='white')
-    whitebutton.grid(row=row, column=column+1, sticky=N+S+E+W)
+def sharpnessbuttons(rawsharp, elemsharp):
+    row = 4
+    color = ['purple', 'white', 'blue', 'green', 'yellow', 'orange', 'red']
+    sharpbuttons = []
 
-    bluebutton = Button(rightframe, bg='blue')
-    bluebutton.grid(row=row, column=column+2, sticky=N+S+E+W)
+    for i in range(7):
+        print(str(i) + "," + str(color[i]))
+        button = utils.create_colored_buttongrid(rightframe, row, i, color[i], sticky=N+S+E+W)
+        sharpbuttons.append(button)
 
-    greenbutton = Button(rightframe, bg='green')
-    greenbutton.grid(row=row, column=column+3, sticky=N+S+E+W)
-
-    yellowbutton = Button(rightframe, bg='yellow')
-    yellowbutton.grid(row=row, column=column+4, sticky=N+S+E+W)
-
-    redbutton = Button(rightframe, bg='red')
-    redbutton.grid(row=row, column=column+5, sticky=N+S+E+W)
+    sharpbuttons[0].config(command=lambda: setsharpness(0, rawsharp, elemsharp))
+    sharpbuttons[1].config(command=lambda: setsharpness(1, rawsharp, elemsharp))
+    sharpbuttons[2].config(command=lambda: setsharpness(2, rawsharp, elemsharp))
+    sharpbuttons[3].config(command=lambda: setsharpness(3, rawsharp, elemsharp))
+    sharpbuttons[4].config(command=lambda: setsharpness(4, rawsharp, elemsharp))
+    sharpbuttons[5].config(command=lambda: setsharpness(5, rawsharp, elemsharp))
+    sharpbuttons[6].config(command=lambda: setsharpness(6, rawsharp, elemsharp))
 
 
 def managerightframe():
-
-
     rawdam = DoubleVar()
     rawdam_label = Label(rightframe, text="Raw Damage Value: ")
     rawdam_label.grid(row=0, column=0, columnspan=3)
@@ -97,38 +103,38 @@ def managerightframe():
     elemsharp_entry = Entry(rightframe, textvariable=elemsharp)
     elemsharp_entry.grid(row=3, column=3, columnspan=3)
 
-    sharpnessbuttons()
+    sharpnessbuttons(rawsharp, elemsharp)
 
     aff = DoubleVar()
     aff_label = Label(rightframe, text="Affinity Factor: ")
-    aff_label.grid(row=4, column=0, columnspan=3)
+    aff_label.grid(row=5, column=0, columnspan=3)
     aff_entry = Entry(rightframe, textvariable=aff)
-    aff_entry.grid(row=4, column=3, columnspan=3)
+    aff_entry.grid(row=5, column=3, columnspan=3)
 
     button_calc = Button(rightframe,
                          text='Calculate You Lil Shit',
                          command=lambda: damageoutput(current_motionvalue, current_bloater, rawdam_entry,
                                                       elemdam_entry, rawsharp_entry, elemsharp_entry,
                                                       aff_entry, rawtruedam, elemtruedam, truedam))
-    button_calc.grid(row=5, column=1, columnspan=4)
+    button_calc.grid(row=6, column=1, columnspan=4)
 
     rawtruedam = DoubleVar()
     rawtruedam_label = Label(rightframe, text="Physical True Damage: ")
-    rawtruedam_label.grid(row=6, column=0, columnspan=3)
+    rawtruedam_label.grid(row=7, column=0, columnspan=3)
     rawtruedam_entry = Entry(rightframe, textvariable=rawtruedam)
-    rawtruedam_entry.grid(row=6, column=3, columnspan=3)
+    rawtruedam_entry.grid(row=7, column=3, columnspan=3)
 
     elemtruedam = DoubleVar()
     elemtruedam_label = Label(rightframe, text="Elemental True Damage: ")
-    elemtruedam_label.grid(row=7, column=0, columnspan=3)
+    elemtruedam_label.grid(row=8, column=0, columnspan=3)
     elemtruedam_entry = Entry(rightframe, textvariable=elemtruedam)
-    elemtruedam_entry.grid(row=7, column=3, columnspan=3)
+    elemtruedam_entry.grid(row=8, column=3, columnspan=3)
 
     truedam = DoubleVar()
     truedam_label = Label(rightframe, text="Total True Damage: ")
-    truedam_label.grid(row=8, column=0, columnspan=3)
+    truedam_label.grid(row=9, column=0, columnspan=3)
     truedam_entry = Entry(rightframe, textvariable=truedam)
-    truedam_entry.grid(row=8, column=3, columnspan=3)
+    truedam_entry.grid(row=9, column=3, columnspan=3)
 
 
 def manageleftframe():
