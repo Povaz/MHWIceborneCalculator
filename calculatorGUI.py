@@ -8,13 +8,17 @@ rawweak = 0.7
 # Weapon Parameters
 motionvalues = []
 bloaters = []
+crit_elems = []
 current_motionvalue = 0.0
-current_bloater = 1
+current_bloater = 1.00
 current_rawsharp = 0.0
 current_elemsharp = 0.0
+current_critelem = 1.00
 
 # Skills Parameters
 criticalboost_value = 0.0
+criticalelement_active = False
+criticaleye_value = 0.0
 
 
 def managecenterframe():
@@ -86,6 +90,8 @@ def damageoutput(motionvalue, bloater, rawdam_entry, elemdam_entry, rawsharp_ent
     elemsharp_value = float(elemsharp_entry.get())
     aff_value = float(aff_entry.get())
 
+    aff_value = aff_value + criticaleye_value
+
     if aff_value < 0.0:
         critdamage = 0.75 + criticalboost_value
         aff_value = - aff_value
@@ -93,9 +99,14 @@ def damageoutput(motionvalue, bloater, rawdam_entry, elemdam_entry, rawsharp_ent
         critdamage = 1.25 + criticalboost_value
 
     affinity_multiplier = ((1 - aff_value) + aff_value * critdamage)
-    elemental_affinity_multiplier = 1
+
+    if criticalelement_active:
+        elemental_affinity = ((1 - aff_value) + aff_value * current_critelem)
+    else:
+        elemental_affinity = 1
+
     phystotal = (rawdam_value * affinity_multiplier * rawsharp_value * motionvalue * rawweak) / bloater
-    elemtotal = (elemdam_value * elemental_affinity_multiplier * elemsharp_value * motionvalue * elemweak) / bloater
+    elemtotal = (elemdam_value * elemental_affinity * elemsharp_value * motionvalue * elemweak) / bloater
     truedamage = phystotal + elemtotal
 
     rawtruedam.set(str(round(phystotal, 4)))
@@ -149,12 +160,17 @@ def manageleftframe():
     # Dual Blades: Index 0
     tickbox.append(BooleanVar())
     check_db = Checkbutton(leftframe, text="Dual Blades", var=tickbox[0], command=lambda: setweapon(tickbox, 0))
-    check_db.grid(row=0, column=0)
+    check_db.grid(row=0, column=0, sticky=W)
 
     # Hammer: Index 1
     tickbox.append(BooleanVar())
     check_hm = Checkbutton(leftframe, text="Hammer", var=tickbox[1], command=lambda: setweapon(tickbox, 1))
-    check_hm.grid(row=0, column=1)
+    check_hm.grid(row=0, column=1, sticky=W)
+
+    # Bow: Index 2
+    tickbox.append(BooleanVar())
+    check_hm = Checkbutton(leftframe, text="Bow", var=tickbox[2], command=lambda: setweapon(tickbox, 2))
+    check_hm.grid(row=1, column=0, sticky=W)
 
 
 def setweapon(tickboxes, i):
@@ -166,10 +182,14 @@ def setweapon(tickboxes, i):
             current_motionvalue = motionvalues[i]
             global current_bloater
             current_bloater = bloaters[i]
+            global current_critelem
+            current_critelem = crit_elems[i]
 
 
 def managerightframe():
     criticalboost()
+    criticalelement()
+    criticaleye()
 
 
 def criticalboost():
@@ -205,16 +225,82 @@ def apply_criticalboost(variables, i):
                 variables[j].set(False)
 
 
+def criticalelement():
+    label = Label(rightframe, text="Critical Element:")
+    label.grid(row=1, column=0)
 
-# TODO: Needs to be moved in a file soon
+    result = utils.create_checkboxgrid(rightframe, 1, 1, "Lv" + str(1))
+
+    result[0].config(command=lambda: apply_criticalelement(result[1]))
+
+
+def apply_criticalelement(variable):
+    global criticalelement_active
+    if variable.get():
+        variable.set(True)
+        print("Checkbox is: " + str(variable.get()))
+        criticalelement_active = True
+    else:
+        variable.set(False)
+        print("Checkbox is: " + str(variable.get()))
+        criticalelement_active = False
+
+
+def criticaleye():
+    checkboxes = []
+    variables = []
+    levels = 7
+    label = Label(rightframe, text="Critical Eye:")
+    label.grid(row=3, column=0)
+
+    for i in range(levels):
+        result = utils.create_checkboxgrid(rightframe, 3, i+1, "Lv" + str(i+1))
+        checkboxes.append(result[0])
+        variables.append(result[1])
+
+    checkboxes[0].config(command=lambda: apply_criticaleye(variables, 0))
+    checkboxes[1].config(command=lambda: apply_criticaleye(variables, 1))
+    checkboxes[2].config(command=lambda: apply_criticaleye(variables, 2))
+    checkboxes[3].config(command=lambda: apply_criticaleye(variables, 3))
+    checkboxes[4].config(command=lambda: apply_criticaleye(variables, 4))
+    checkboxes[5].config(command=lambda: apply_criticaleye(variables, 5))
+    checkboxes[6].config(command=lambda: apply_criticaleye(variables, 6))
+
+
+def apply_criticaleye(variables, i):
+    global criticaleye_value
+    lenght = len(variables)
+    for j in range(lenght):
+        if j != i:
+            variables[j].set(False)
+        else:
+            if variables[j].get():
+                print('Set Critical Eye to lv ' + str(j + 1))
+                criticaleye_value = 0.05 * (j + 1)
+                if i == 6:
+                    criticaleye_value = criticaleye_value + 0.05
+            else:
+                print('Reset Critical Boost')
+                criticaleye_value = 0.0
+                variables[j].set(False)
+
+
+# TODO: Needs to be moved in a file
 def gatherdata():
     # Dual Blades: Index 0
     motionvalues.append(0.19)
     bloaters.append(1.4)
+    crit_elems.append(1.35)
 
     # Hammer: Index 1
     motionvalues.append(0.2)
     bloaters.append(5.2)
+    crit_elems.append(1.25)
+
+    # Bow: Index 2
+    motionvalues.append(0.08)
+    bloaters.append(1.2)
+    crit_elems.append(1.35)
 
 
 gatherdata()
