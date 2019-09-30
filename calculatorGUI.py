@@ -1,5 +1,7 @@
 from tkinter import *
+from tkinter import ttk
 import utils
+import pandas as pd
 
 # Monster Parameters
 elemweak = 0.25
@@ -9,6 +11,7 @@ rawweak = 0.7
 motionvalues = []
 bloaters = []
 crit_elems = []
+current_attackname = 'Null'
 current_motionvalue = 0.0
 current_bloater = 1.00
 current_rawsharp = 0.0
@@ -156,11 +159,19 @@ def adjustcentergrid():
 
 def manageleftframe():
     tickbox = []
+    combobox = []
 
     # Dual Blades: Index 0
     tickbox.append(BooleanVar())
     check_db = Checkbutton(leftframe, text="Dual Blades", var=tickbox[0], command=lambda: setweapon(tickbox, 0))
     check_db.grid(row=0, column=0, sticky=W)
+
+    global dualblades_cb
+    dualblades_list = dualblades_mv['Name'].tolist()
+    dualblades_cb = ttk.Combobox(leftframe, values=dualblades_list, state='readonly')
+    dualblades_cb.grid(row=1, column=0, sticky=W)
+    dualblades_cb.current(0)
+    dualblades_cb.bind("<<ComboboxSelected>>", callback_db)
 
     # Hammer: Index 1
     tickbox.append(BooleanVar())
@@ -170,7 +181,7 @@ def manageleftframe():
     # Bow: Index 2
     tickbox.append(BooleanVar())
     check_hm = Checkbutton(leftframe, text="Bow", var=tickbox[2], command=lambda: setweapon(tickbox, 2))
-    check_hm.grid(row=1, column=0, sticky=W)
+    check_hm.grid(row=2, column=0, sticky=W)
 
 
 def setweapon(tickboxes, i):
@@ -184,6 +195,21 @@ def setweapon(tickboxes, i):
             current_bloater = bloaters[i]
             global current_critelem
             current_critelem = crit_elems[i]
+
+
+def callback_db(eventObject):
+    global current_attackname
+    current_attackname = dualblades_cb.get()
+    global current_motionvalue
+    current_motionvalue = fetch_mv(current_attackname, 0) / 100
+
+
+def fetch_mv(attackname, weapon):
+    # Dual Blades Index: 0
+    if weapon == 0:
+        temp = dualblades_mv.loc[dualblades_mv['Name'] == attackname]
+        mv = temp.iloc[:, 1:].sum(1)
+        return mv.item()
 
 
 def managerightframe():
@@ -306,6 +332,10 @@ def gatherdata():
 gatherdata()
 window = Tk()
 window.title("Monster Hunter World: Iceborne Calculator")
+
+# Weapon Data & Combobox
+dualblades_mv = pd.read_csv('dualblades_mv.csv')
+dualblades_cb = ttk.Combobox()
 
 leftframe = LabelFrame(window, text="Weapon Choice")
 leftframe.grid(row=0, column=0)
