@@ -1,0 +1,14 @@
+﻿Name,Attack 1,Attack 2,Attack 3,Attack 4,Attack 5
+Shoot,8,0,0,0,0
+Charge I,10,10,0,0,0
+Charge II,11,11,11,0,0
+Quick Shot,6,6,6,0,0
+Charge Step Power Shot,13,13,13,13,13
+Diving Melee Attack,35,0,0,0,0
+Jump Melee Attack,5,0,0,0,0
+High-Angle Shot (Single),6,0,0,0,0
+Charge I High-Angle Shot (Single),8,0,0,0,0
+Charge II High-Angle Shot (Single),42,0,0,0,0
+Wyvern's Arrow (Single),23,0,0,0,0
+Charge I Wyvern's Arrow (Single),24,0,0,0,0
+Charge II Wyvern's Arrow (Single),26,0,0,0,0

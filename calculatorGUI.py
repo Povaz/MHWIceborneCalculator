@@ -168,7 +168,7 @@ def manageleftframe():
 
     global dualblades_cb
     dualblades_list = dualblades_mv['Name'].tolist()
-    dualblades_cb = ttk.Combobox(leftframe, values=dualblades_list, state='disabled')
+    dualblades_cb = ttk.Combobox(leftframe, values=dualblades_list, state='disabled', width=35)
     dualblades_cb.grid(row=1, column=0, sticky=W)
     dualblades_cb.current(0)
     dualblades_cb.bind("<<ComboboxSelected>>", callback_db)
@@ -179,20 +179,35 @@ def manageleftframe():
     check_hm = Checkbutton(leftframe, text="Hammer", var=tickbox[1], command=lambda: setweapon(tickbox, combobox, 1))
     check_hm.grid(row=0, column=1, sticky=W)
 
+    global hammer_cb
+    hammer_list = hammer_mv['Name'].tolist()
+    hammer_cb = ttk.Combobox(leftframe, values=hammer_list, state='disabled', width=35)
+    hammer_cb.grid(row=1, column=1, sticky=W)
+    hammer_cb.current(0)
+    hammer_cb.bind("<<ComboboxSelected>>", callback_hm)
+    combobox.append(hammer_cb)
+
     # Bow: Index 2
     tickbox.append(BooleanVar())
     check_hm = Checkbutton(leftframe, text="Bow", var=tickbox[2], command=lambda: setweapon(tickbox, combobox, 2))
     check_hm.grid(row=2, column=0, sticky=W)
+
+    global bow_cb
+    bow_list = bow_mv['Name'].tolist()
+    bow_cb = ttk.Combobox(leftframe, values=bow_list, state='disabled', width=35)
+    bow_cb.grid(row=3, column=0, sticky=W)
+    bow_cb.current(0)
+    bow_cb.bind("<<ComboboxSelected>>", callback_bow)
+    combobox.append(bow_cb)
 
 
 def setweapon(tickboxes, comboboxes, i):
     for j in range(len(tickboxes)):
         if j != i:
             tickboxes[j].set(False)
-            if j == 0:
-                comboboxes[j].current(0)
-                comboboxes[j].config(state='disabled')
-                motionvalues[j] = fetch_first_mv(j)
+            comboboxes[j].current(0)
+            comboboxes[j].config(state='disabled')
+            motionvalues[j] = fetch_first_mv(j)
         else:
             global current_motionvalue
             current_motionvalue = motionvalues[i]
@@ -200,8 +215,7 @@ def setweapon(tickboxes, comboboxes, i):
             current_bloater = bloaters[i]
             global current_critelem
             current_critelem = crit_elems[i]
-            if i == 0:
-                comboboxes[i].config(state='readonly')
+            comboboxes[i].config(state='readonly')
 
 
 def callback_db(eventObject):
@@ -212,10 +226,38 @@ def callback_db(eventObject):
     current_motionvalue = motionvalues[0]
 
 
+def callback_hm(eventObject):
+    global current_attackname
+    current_attackname = hammer_cb.get()
+    global current_motionvalue
+    motionvalues[1] = fetch_mv(current_attackname, 1)
+    current_motionvalue = motionvalues[1]
+    print(current_motionvalue)
+
+
+def callback_bow(eventObject):
+    global current_attackname
+    current_attackname = bow_cb.get()
+    global current_motionvalue
+    motionvalues[2] = fetch_mv(current_attackname, 2)
+    current_motionvalue = motionvalues[2]
+    print(current_motionvalue)
+
+
 def fetch_mv(attackname, weapon):
     # Dual Blades Index: 0
     if weapon == 0:
         temp = dualblades_mv.loc[dualblades_mv['Name'] == attackname]
+        mv = temp.iloc[:, 1:].sum(1)
+        return mv.item() / 100
+    # Hammer Index: 1
+    if weapon == 1:
+        temp = hammer_mv.loc[hammer_mv['Name'] == attackname]
+        mv = temp.iloc[:, 1:].sum(1)
+        return mv.item() / 100
+    # Bow Index: 2
+    if weapon == 2:
+        temp = bow_mv.loc[bow_mv['Name'] == attackname]
         mv = temp.iloc[:, 1:].sum(1)
         return mv.item() / 100
 
@@ -223,6 +265,14 @@ def fetch_mv(attackname, weapon):
 def fetch_first_mv(weapon):
     if weapon == 0:
         temp = dualblades_mv.iloc[0, :]
+        mv = temp.iloc[1:].sum()
+        return mv.item() / 100
+    if weapon == 1:
+        temp = hammer_mv.iloc[0, :]
+        mv = temp.iloc[1:].sum()
+        return mv.item() / 100
+    if weapon == 2:
+        temp = bow_mv.iloc[0, :]
         mv = temp.iloc[1:].sum()
         return mv.item() / 100
 
@@ -351,6 +401,10 @@ window.title("Monster Hunter World: Iceborne Calculator")
 # Weapon Data & Combobox
 dualblades_mv = pd.read_csv('./files/weapons/dualblades_mv.csv')
 dualblades_cb = ttk.Combobox()
+hammer_mv = pd.read_csv('./files/weapons/hammer_mv.csv')
+hammer_cb = ttk.Combobox()
+bow_mv = pd.read_csv('./files/weapons/bow_mv.csv')
+bow_cb = ttk.Combobox()
 
 leftframe = LabelFrame(window, text="Weapon Choice")
 leftframe.grid(row=0, column=0)
