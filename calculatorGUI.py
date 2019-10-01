@@ -418,4 +418,6 @@ rightframe = LabelFrame(window, text="Skills")
 rightframe.grid(row=0, column=2)
 managerightframe()
 
+
+
 window.mainloop()
