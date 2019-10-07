@@ -1,29 +1,28 @@
-﻿Name,Attack 1,Attack 2,Attack 3,Attack 4,Attack 5,Attack 6
-Unsheate Attack,20,0,0,0,0,0
-Return Swing,16,0,0,0,0,0
-Side Smash,15,0,0,0,0,0
-Ground Smash I,37,0,0,0,0,0
-Ground Smash II,22,0,0,0,0,0
-Upswing,86,0,0,0,0,0
-Aerial Unsheate Attack,36,0,0,0,0,0
-Aerial Attack Charge Lv1,62,0,0,0,0,0
-Aerial Attack Charge Lv2,66,0,0,0,0,0
-Aerial Attack Charge Lv3,79,0,0,0,0,0
-Strike First Step,28,0,0,0,0,0
-Strike Second Step,32,0,0,0,0,0
-Strike Third Step,45,0,0,0,0,0
-Strike Fourth Step,65,0,0,0,0,0
-Strike Finish,28,28,100,0,0,0
-Rising Smash Charge Lv1,19,0,0,0,0,0
-Charge Return Swing,25,0,0,0,0,0
-Charge Return Swing (PowerStore),58,0,0,0,0,0
-Uppercut Smash Charge Lv2,38,0,0,0,0,0
-Superpound Charge Lv3,15,76,0,0,0,0
-Spinning Bludgeon,28,19,19,19,19,19
-Spinning Side Swing,15,0,0,0,0,0
-Spinning Bludgeon Hook,56,0,0,0,0,0
-Spinning Bludgeon Slam,32,0,0,0,0,0
-Spinning Bludgeon Upswing,86,0,0,0,0,0
-Strong Charge Strike (Superpound PS),16,16,91,0,0,0
-Strong Charge Upper (Uppercut Smash PS),48,0,0,0,0,0
-Aerial Spinning Bludgeon (4 Aerial),120,100,0,0,0,0
+﻿Name,Attack 1,Attack 2,Attack 3,Attack 4,Attack 5,Attack 6,Atttack 7
+Swing,20,0,0,0,0,0,0
+Backswing,16,0,0,0,0,0,0
+Overhead Smash I,37,0,0,0,0,0,0
+Side Smash,15,0,0,0,0,0,0
+Overhead Smash II,23,0,0,0,0,0,0
+Upswing,86,0,0,0,0,0,0
+Big Bang I,28,0,0,0,0,0,0
+Big Bang II,32,0,0,0,0,0,0
+Big Bang III,45,0,0,0,0,0,0
+Big Bang IV,65,0,0,0,0,0,0
+Big Bang Finisher,28,28,100,0,0,0,0
+Charged Side Blow,18,0,0,0,0,0,0
+Charged Upswing,38,0,0,0,0,0,0
+Charged Big Bang,15,76,0,0,0,0,0
+Spinning Bludgeon,26,18,18,18,18,18,32
+Charged Brutal Upswing,45,0,0,0,0,0,0
+Charged Brutal Big Bang ,15,15,85,0,0,0,0
+Charged Follow Up,25,0,0,0,0,0,0
+Charged Follow Up (Power Charge),55,0,0,0,0,0,0
+Spinning Side Smash,15,0,0,0,0,0,0
+Spinning Follow Up,55,19,19,19,19,19,0
+Spinning Strong Upswing,90,0,0,0,0,0,0
+Jumping Smash,37,0,0,0,0,0,0
+Midair Spinning Bludgeon (4 Attacks),25,25,25,25,100,0,0
+Jumping Charge Attack ,65,0,0,0,0,0,0
+Jumping Charge Attack II,70,0,0,0,0,0,0
+Jumping Charge Attack III,80,0,0,0,0,0,0
