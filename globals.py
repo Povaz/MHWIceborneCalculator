@@ -38,12 +38,15 @@ def setdata():
     bow_cb = ttk.Combobox()
     greatsword_mv = pd.read_csv('./files/weapons/greatsword_mv.csv', sep=';')
     greatsword_cb = ttk.Combobox()
+    longsword_mv = pd.read_csv('./files/weapons/longsword_mv.csv', sep=';')
+    longsword_cb = ttk.Combobox()
 
     global weapondatastructure
     weapondatastructure = {0: [dualblades_mv, dualblades_cb, 'Dual Blades'],
                            1: [hammer_mv, hammer_cb, 'Hammer'],
                            2: [bow_mv, bow_cb, 'Bow'],
-                           3: [greatsword_mv, greatsword_cb, 'Great Sword']}
+                           3: [greatsword_mv, greatsword_cb, 'Great Sword'],
+                           4: [longsword_mv, longsword_cb, 'Long Sword']}
 
     # Weapons hard coded values
 
@@ -61,3 +64,13 @@ def setdata():
     motionvalues.append(0.08)
     bloaters.append(1.2)
     crit_elems.append(1.35)
+
+    # Great Sword: Index 3
+    motionvalues.append(0.48)
+    bloaters.append(4.8)
+    crit_elems.append(1.2)
+
+    # Long Sword: Index 4
+    motionvalues.append(0.24)
+    bloaters.append(3.3)
+    crit_elems.append(1.25)
