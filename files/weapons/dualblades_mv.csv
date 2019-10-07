@@ -1,16 +1,24 @@
-﻿Name,Attack 1,Attack 2,Attack 3,Attack 4,Attack 5,Attack 6,Attack 7,Attack 8,Attack 9,Attack 10,Attack 11,Attack 12,Attack 13,Attack 14,Attack 15,Attack 16
-Double Slash,9,10,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-Double Slash Return,10,10,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-Rotation Slash,10,10,11,0,0,0,0,0,0,0,0,0,0,0,0,0
-Draw Slash,4,4,5,5,0,0,0,0,0,0,0,0,0,0,0,0
-Rising Slash,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-Demonized Revers Slash,13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-Demonized Double Slash,15,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-Demonized 6-Step Slash,10,10,10,10,16,16,0,0,0,0,0,0,0,0,0,0
-Demon Dance,18,18,6,6,10,10,10,10,10,10,11,11,13,13,8,21
-Demon Rush Slash,5,5,4,4,9,9,0,0,0,0,0,0,0,0,0,0
-Demon Continuous Slash,10,10,8,8,4,18,18,0,0,0,0,0,0,0,0,0
-Left Rotation Slash ,16,8,5,0,0,0,0,0,0,0,0,0,0,0,0,0
-Right Rotation Slash,16,8,5,0,0,0,0,0,0,0,0,0,0,0,0,0
-Aerial Roration Demon Dance (10 Hits),110,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-Rotating Demon Dance Finish,21,21,11,0,0,0,0,0,0,0,0,0,0,0,0,0
+﻿Name;Attack 1;Attack 2;Attack 3;Attack 4;Attack 5;Attack 6;Attack 7;Attack 8;Attack 9;Attack 10;Attack 11;Attack 12;Attack 13;Attack 14;Attack 15;Attack 16
+Double Slash;8;10;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+Double Slash Return;9;10;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+Circle Slash;11;9;11;0;0;0;0;0;0;0;0;0;0;0;0;0
+Lunging Strike;3;3;5;5;0;0;0;0;0;0;0;0;0;0;0;0
+Left Round Slash;7;5;15;0;0;0;0;0;0;0;0;0;0;0;0;0
+Right Round Slash;7;5;15;0;0;0;0;0;0;0;0;0;0;0;0;0
+Turn Slash;5;5;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+Rising Slash;7;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+Sliding Slash;10;10;13;13;0;0;0;0;0;0;0;0;0;0;0;0
+Demon Fangs;11;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+Twofold Demon Slash;7;14;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+Sixfold Demon Slash;10;10;9;9;16;16;0;0;0;0;0;0;0;0;0;0
+Demon Flurry Rush;5;5;4;4;8;8;0;0;0;0;0;0;0;0;0;0
+Right Fade Slash;7;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+Left Fade Slash;7;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+Right Double Round Slash;19;7;11;0;0;0;0;0;0;0;0;0;0;0;0;0
+Left Double Round Slash;19;7;11;0;0;0;0;0;0;0;0;0;0;0;0;0
+Blade Dance;17;17;6;6;10;10;9;9;11;11;9;9;12;7;12;0
+Demon Flurry;9;9;7;7;3;17;17;0;0;0;0;0;0;0;0;0
+Jumping Double Slash;9;12;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+Heavenly Blade Dance;17;11;11;17;20;20;12;12;21;21;0;0;0;0;0;0
+Midair Spinning Blade Dance;15;10;15;10;0;0;0;0;0;0;0;0;0;0;0;0
+Spinning Blade Dance Finisher;20;20;20;20;12;12;0;0;0;0;0;0;0;0;0;0

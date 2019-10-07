@@ -30,17 +30,20 @@ current_critelem = 1.00
 
 def setdata():
     # Imported Data and Combobox for Weapons
-    dualblades_mv = pd.read_csv('./files/weapons/dualblades_mv.csv')
+    dualblades_mv = pd.read_csv('./files/weapons/dualblades_mv.csv', sep=';')
     dualblades_cb = ttk.Combobox()
-    hammer_mv = pd.read_csv('./files/weapons/hammer_mv.csv')
+    hammer_mv = pd.read_csv('./files/weapons/hammer_mv.csv', sep=';')
     hammer_cb = ttk.Combobox()
-    bow_mv = pd.read_csv('./files/weapons/bow_mv.csv')
+    bow_mv = pd.read_csv('./files/weapons/bow_mv.csv', sep=';')
     bow_cb = ttk.Combobox()
+    greatsword_mv = pd.read_csv('./files/weapons/greatsword_mv.csv', sep=';')
+    greatsword_cb = ttk.Combobox()
 
     global weapondatastructure
     weapondatastructure = {0: [dualblades_mv, dualblades_cb, 'Dual Blades'],
                            1: [hammer_mv, hammer_cb, 'Hammer'],
-                           2: [bow_mv, bow_cb, 'Bow']}
+                           2: [bow_mv, bow_cb, 'Bow'],
+                           3: [greatsword_mv, greatsword_cb, 'Great Sword']}
 
     # Weapons hard coded values
 
