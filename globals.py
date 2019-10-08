@@ -40,13 +40,31 @@ def setdata():
     greatsword_cb = ttk.Combobox()
     longsword_mv = pd.read_csv('./files/weapons/longsword_mv.csv', sep=';')
     longsword_cb = ttk.Combobox()
+    swordandshield_mv = pd.read_csv('./files/weapons/swordandshield_mv.csv', sep=';')
+    swordandshield_cb = ttk.Combobox()
+    huntinghorn_mv = pd.read_csv('./files/weapons/huntinghorn_mv.csv', sep=';')
+    huntinghorn_cb = ttk.Combobox()
+    lance_mv = pd.read_csv('./files/weapons/lance_mv.csv', sep=';')
+    lance_cb = ttk.Combobox()
+    gunlance_mv = pd.read_csv('./files/weapons/gunlance_mv.csv', sep=';')
+    gunlance_cb = ttk.Combobox()
+    switchaxe_mv = pd.read_csv('./files/weapons/switchaxe_mv.csv', sep=';')
+    switchaxe_cb = ttk.Combobox()
+    chargeblade_mv = pd.read_csv('./files/weapons/chargeblade_mv.csv', sep=';')
+    chargeblade_cb = ttk.Combobox()
 
     global weapondatastructure
     weapondatastructure = {0: [dualblades_mv, dualblades_cb, 'Dual Blades'],
                            1: [hammer_mv, hammer_cb, 'Hammer'],
                            2: [bow_mv, bow_cb, 'Bow'],
                            3: [greatsword_mv, greatsword_cb, 'Great Sword'],
-                           4: [longsword_mv, longsword_cb, 'Long Sword']}
+                           4: [longsword_mv, longsword_cb, 'Long Sword'],
+                           5: [swordandshield_mv, swordandshield_cb, 'Sword and Shield'],
+                           6: [huntinghorn_mv, huntinghorn_cb, 'Hunting Horn'],
+                           7: [lance_mv, lance_cb, 'Lance'],
+                           8: [gunlance_mv, gunlance_cb, 'Gunlance'],
+                           9: [switchaxe_mv, switchaxe_cb, 'Switch Axe'],
+                           10: [chargeblade_mv, chargeblade_cb, 'Charge Blade']}
 
     # Weapons hard coded values
 
@@ -73,4 +91,36 @@ def setdata():
     # Long Sword: Index 4
     motionvalues.append(0.24)
     bloaters.append(3.3)
+    crit_elems.append(1.25)
+
+    # Sword and Shield: Index 5
+    motionvalues.append(0.14)
+    bloaters.append(1.4)
+    crit_elems.append(1.35)
+
+    # Hunting Horn: Index 6
+    motionvalues.append(0.27)
+    bloaters.append(4.2)
+    crit_elems.append(1.25)
+
+    # Lance: Index 7
+    motionvalues.append(0.2)
+    bloaters.append(2.3)
+    crit_elems.append(1.25)
+
+    # TODO Gunlance: Special Attacks
+    # Gunlance: Index 8
+    motionvalues.append(0.3)
+    bloaters.append(2.3)
+    crit_elems.append(1.25)
+
+    # Switch Axe: Index 9
+    motionvalues.append(0.29)
+    bloaters.append(3.5)
+    crit_elems.append(1.25)
+
+    # TODO Charge Blade: Special Attacks
+    # Charge Blade: Index 10
+    motionvalues.append(0.2)
+    bloaters.append(3.6)
     crit_elems.append(1.25)
