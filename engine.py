@@ -25,7 +25,7 @@ def damageoutput(motionvalue, bloater, rawdam_entry, elemdam_entry, rawsharp_ent
         elemental_affinity = 1
 
     phystotal = (rawdam_value * affinity_multiplier * rawsharp_value * motionvalue * globals.rawweak) / bloater
-    elemtotal = (elemdam_value * elemental_affinity * elemsharp_value * motionvalue * globals.elemweak) / bloater
+    elemtotal = ((elemdam_value/10) * elemental_affinity * elemsharp_value * (1 + globals.elemweak))
     truedamage = phystotal + elemtotal
 
     rawtruedam.set(str(round(phystotal, 4)))

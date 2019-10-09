@@ -35,8 +35,8 @@ def managecenterframe():
     elemtruedam = DoubleVar()
     truedam = DoubleVar()
     utils.create_labelentrygrid(centerframe, 7, 0, 3, rawtruedam, "Physical True Damage: ")
-    utils.create_labelentrygrid(centerframe, 8, 0, 3, rawtruedam, "Elemental True Damage: ")
-    utils.create_labelentrygrid(centerframe, 9, 0, 3, rawtruedam, "Total True Damage: ")
+    utils.create_labelentrygrid(centerframe, 8, 0, 3, elemtruedam, "Elemental True Damage: ")
+    utils.create_labelentrygrid(centerframe, 9, 0, 3, truedam, "Total True Damage: ")
 
 
 def sharpnessbuttons(rawsharp, elemsharp, row):
