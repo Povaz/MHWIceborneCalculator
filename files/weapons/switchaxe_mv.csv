@@ -1,0 +1,30 @@
+Name; Attack 1;Attack 2;Attack 3
+Axe: Morph Slash;29
+Axe: Side Slash;23
+Axe: Forward Slash;19
+Axe: Rising Slash;25
+Axe: Overhead Slash;40
+Axe: Wild Swing;21;23
+Axe: Fade Slash;23
+Axe: Morph Sweep;20;70;35
+Axe: Jumping Slash;43
+Axe: Jumping Morph Slash;35
+Axe: Jumping Sweep;74
+Sword: Morph Slash;23
+Sword: Downward Fade Slash;45
+Sword: Overhead Slash;29
+Sword: Right Rising Slash;21
+Sword: Left Rising Slash;18
+Sword: Double Slash;22;26
+Sword: Heavensward Flurry;24;32
+Sword: Element Discharge;10
+Sword: Element Discharge (Bash );6
+Element Discharge Finisher;80
+Element Discharge Finisher (Early release);67
+Zero Sum Discharge (Initial hit);15
+Zero Sum Discharge (Bash );12
+Zero Sum Discharge Finisher;96
+Sword: Jumping Slash;35
+Sword: Jumping Element Discharge;10
+Sword: Jumping Morph Slash;43
+Sword: Jumping Rising Slash;35
