@@ -52,6 +52,9 @@ def setdata():
     switchaxe_cb = ttk.Combobox()
     chargeblade_mv = pd.read_csv('./files/weapons/chargeblade_mv.csv', sep=';')
     chargeblade_cb = ttk.Combobox()
+    insectglaive_mv = pd.read_csv('./files/weapons/insectglaive_mv.csv', sep=';')
+    insectglaive_cb = ttk.Combobox()
+
 
     global weapondatastructure
     weapondatastructure = {0: [dualblades_mv, dualblades_cb, 'Dual Blades'],
