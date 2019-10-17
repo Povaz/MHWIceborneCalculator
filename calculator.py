@@ -127,10 +127,21 @@ def criticaleye():
         checkboxes[i].config(command=engine.lambda_apply_criticaleye(variables, i))
 
 
+def manangebottomframe():
+    columns = 5
+    for key in globals.monsterdatastructure:
+        row = key // columns
+        column = key % columns
+        button = Button(bottomframe, image=globals.monsterdatastructure.get(key)[2])
+        button.grid(row=row, column=column)
+        button.config(height=100, width=100)
+
+
 window = Tk()
 window.title("Monster Hunter World: Iceborne Calculator")
 
-globals.setdata()
+globals.setweapondata()
+globals.setmonsterdata()
 
 leftframe = LabelFrame(window, text="Weapon Choice")
 leftframe.grid(row=0, column=0)
@@ -143,5 +154,9 @@ managecenterframe()
 rightframe = LabelFrame(window, text="Skills")
 rightframe.grid(row=0, column=2)
 managerightframe()
+
+bottomframe = LabelFrame(window, text="Monsters")
+bottomframe.grid(row=1, column=0, columnspan=3)
+manangebottomframe()
 
 window.mainloop()

@@ -1,9 +1,12 @@
+from tkinter import *
 from tkinter import ttk
 import pandas as pd
 
 # Data Structure
 weapondatastructure = []
 current_weapon = 0
+monsterdatastructure = []
+current_monster = 0
 
 # Monster Parameters
 elemweak = 0.25
@@ -28,7 +31,7 @@ current_elemsharp = 0.0
 current_critelem = 1.00
 
 
-def setdata():
+def setweapondata():
     # Imported Data and Combobox for Weapons
     dualblades_mv = pd.read_csv('./files/weapons/dualblades_mv.csv', sep=';')
     dualblades_cb = ttk.Combobox()
@@ -54,7 +57,6 @@ def setdata():
     chargeblade_cb = ttk.Combobox()
     insectglaive_mv = pd.read_csv('./files/weapons/insectglaive_mv.csv', sep=';')
     insectglaive_cb = ttk.Combobox()
-
 
     global weapondatastructure
     weapondatastructure = {0: [dualblades_mv, dualblades_cb, 'Dual Blades'],
@@ -127,3 +129,17 @@ def setdata():
     motionvalues.append(0.2)
     bloaters.append(3.6)
     crit_elems.append(1.25)
+
+
+def setmonsterdata():
+    greatjagras_def = pd.read_csv('./files/monsters/greatjagras_def.csv', sep=';')
+    greatjagras_logo = PhotoImage(file='./files/monsters/logos/greatjagras_logo.png')
+    kuluyaku_def = pd.read_csv('./files/monsters/kuluyaku_def.csv', sep=';')
+    kuluyaku_logo = PhotoImage(file='./files/monsters/logos/kuluyaku_logo.png')
+    pukeipukei_def = pd.read_csv('./files/monsters/pukeipukei_def.csv', sep=';')
+    pukeipukei_logo = PhotoImage(file='./files/monsters/logos/pukeipukei_logo.png')
+
+    global monsterdatastructure
+    monsterdatastructure = {0: ['Great Jagras', greatjagras_def, greatjagras_logo],
+                            1: ['Kulu Yaku', kuluyaku_def, kuluyaku_logo],
+                            2: ['Pukei Pukei', pukeipukei_def, pukeipukei_logo]}
