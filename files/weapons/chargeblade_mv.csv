@@ -1,28 +1,28 @@
-Name;Attack 1;Attack 2;Attack 3
-Sword: Forward Slash;20
-Sword: Weak Slash;12
-Sword: Charged Rising Slash;13
-Sword: Charged Double Slash;27;18
-Sword: Sliding Slash;25
-Sword: Return Stroke;15
-Sword: Shield Thrust;12;8
-Sword: Spinning Slash;28
-Sword: Morph Slash;44
-Sword: Condensed Element Slash;75
-Sword: Jumping Slash;22
-Sword: Jumping Morph Slash;46
-Sword: Jumping Rising Slash;21
-Axe: Smash;44
-Axe: Morph Slash;28
-Elemental Roundslash;50
-Axe: Rising Slash;35
-Axe: Overhead Slash;37
-Axe: Dash Slam;45
-Axe: ED I;21
-Axe: Rushing ED I;21
-Axe: ED II;10;66
-Axe: Amped Element Discharge;90
-Axe: Super AED (Has Phials);15;90;97
-Axe: Super AED (No Phials);15;97
-Axe: Jumping Slash;46
-Axe: Jumping Morph Slash;22
+Name;Type;Attack 1;Attack 2;Attack 3
+Sword: Forward Slash;Sever;20
+Sword: Weak Slash;Sever;12
+Sword: Charged Rising Slash;Sever;13
+Sword: Charged Double Slash;Sever;27;18
+Sword: Sliding Slash;Sever;25
+Sword: Return Stroke;Sever;15
+Sword: Shield Thrust;Sever;12;8
+Sword: Spinning Slash;Sever;28
+Sword: Morph Slash;Sever;44
+Sword: Condensed Element Slash;Sever;75
+Sword: Jumping Slash;Sever;22
+Sword: Jumping Morph Slash;Sever;46
+Sword: Jumping Rising Slash;Sever;21
+Axe: Smash;Sever;44
+Axe: Morph Slash;Sever;28
+Elemental Roundslash;Sever;50
+Axe: Rising Slash;Sever;35
+Axe: Overhead Slash;Sever;37
+Axe: Dash Slam;Sever;45
+Axe: ED I;Sever;21
+Axe: Rushing ED I;Sever;21
+Axe: ED II;Sever;10;66
+Axe: Amped Element Discharge;Sever;90
+Axe: Super AED (Has Phials);Sever;15;90;97
+Axe: Super AED (No Phials);Sever;15;97
+Axe: Jumping Slash;Sever;46
+Axe: Jumping Morph Slash;Sever;22

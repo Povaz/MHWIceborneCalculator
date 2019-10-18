@@ -1,28 +1,28 @@
-﻿Name;Attack 1;Attack 2;Attack 3;Attack 4;Attack 5;Attack 6;Atttack 7
-Swing;20;0;0;0;0;0;0
-Backswing;16;0;0;0;0;0;0
-Overhead Smash I;37;0;0;0;0;0;0
-Side Smash;15;0;0;0;0;0;0
-Overhead Smash II;23;0;0;0;0;0;0
-Upswing;86;0;0;0;0;0;0
-Big Bang I;28;0;0;0;0;0;0
-Big Bang II;32;0;0;0;0;0;0
-Big Bang III;45;0;0;0;0;0;0
-Big Bang IV;65;0;0;0;0;0;0
-Big Bang Finisher;28;28;100;0;0;0;0
-Charged Side Blow;18;0;0;0;0;0;0
-Charged Upswing;38;0;0;0;0;0;0
-Charged Big Bang;15;76;0;0;0;0;0
-Spinning Bludgeon;26;18;18;18;18;18;32
-Charged Brutal Upswing;45;0;0;0;0;0;0
-Charged Brutal Big Bang ;15;15;85;0;0;0;0
-Charged Follow Up;25;0;0;0;0;0;0
-Charged Follow Up (Power Charge);55;0;0;0;0;0;0
-Spinning Side Smash;15;0;0;0;0;0;0
-Spinning Follow Up;55;19;19;19;19;19;0
-Spinning Strong Upswing;90;0;0;0;0;0;0
-Jumping Smash;37;0;0;0;0;0;0
-Midair Spinning Bludgeon (4 Attacks);25;25;25;25;100;0;0
-Jumping Charge Attack ;65;0;0;0;0;0;0
-Jumping Charge Attack II;70;0;0;0;0;0;0
-Jumping Charge Attack III;80;0;0;0;0;0;0
+﻿Name;Type;Attack 1;Attack 2;Attack 3;Attack 4;Attack 5;Attack 6;Atttack 7
+Swing;Blunt;20;0;0;0;0;0;0
+Backswing;Blunt;16;0;0;0;0;0;0
+Overhead Smash I;Blunt;37;0;0;0;0;0;0
+Side Smash;Blunt;15;0;0;0;0;0;0
+Overhead Smash II;Blunt;23;0;0;0;0;0;0
+Upswing;Blunt;86;0;0;0;0;0;0
+Big Bang I;Blunt;28;0;0;0;0;0;0
+Big Bang II;Blunt;32;0;0;0;0;0;0
+Big Bang III;Blunt;45;0;0;0;0;0;0
+Big Bang IV;Blunt;65;0;0;0;0;0;0
+Big Bang Finisher;Blunt;28;28;100;0;0;0;0
+Charged Side Blow;Blunt;18;0;0;0;0;0;0
+Charged Upswing;Blunt;38;0;0;0;0;0;0
+Charged Big Bang;Blunt;15;76;0;0;0;0;0
+Spinning Bludgeon;Blunt;26;18;18;18;18;18;32
+Charged Brutal Upswing;Blunt;45;0;0;0;0;0;0
+Charged Brutal Big Bang;Blunt;15;15;85;0;0;0;0
+Charged Follow Up;Blunt;25;0;0;0;0;0;0
+Charged Follow Up (Power Charge);Blunt;55;0;0;0;0;0;0
+Spinning Side Smash;Blunt;15;0;0;0;0;0;0
+Spinning Follow Up;Blunt;55;19;19;19;19;19;0
+Spinning Strong Upswing;Blunt;90;0;0;0;0;0;0
+Jumping Smash;Blunt;37;0;0;0;0;0;0
+Midair Spinning Bludgeon (4 Attacks);Blunt;25;25;25;25;100;0;0
+Jumping Charge Attack;Blunt;65;0;0;0;0;0;0
+Jumping Charge Attack II;Blunt;70;0;0;0;0;0;0
+Jumping Charge Attack III;Blunt;80;0;0;0;0;0;0

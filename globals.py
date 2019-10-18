@@ -9,6 +9,7 @@ monsterdatastructure = []
 current_monster = 0
 
 # Monster Parameters
+current_partname = 'Null'
 elemweak = 0.25
 rawweak = 0.7
 
@@ -24,6 +25,7 @@ motionvalues = []
 bloaters = []
 crit_elems = []
 current_attackname = 'Null'
+current_attacktype = 'Null'
 current_motionvalue = 0.0
 current_bloater = 1.00
 current_rawsharp = 0.0
@@ -57,6 +59,10 @@ def setweapondata():
     chargeblade_cb = ttk.Combobox()
     insectglaive_mv = pd.read_csv('./files/weapons/insectglaive_mv.csv', sep=';')
     insectglaive_cb = ttk.Combobox()
+    lightbowgun_mv = pd.read_csv('./files/weapons/lightbowgun_mv.csv', sep=';')
+    lightbowgun_cb = ttk.Combobox()
+    heavybowgun_mv = pd.read_csv('./files/weapons/heavybowgun_mv.csv', sep=';')
+    heavybowgun_cb = ttk.Combobox()
 
     global weapondatastructure
     weapondatastructure = {0: [dualblades_mv, dualblades_cb, 'Dual Blades'],
@@ -70,7 +76,9 @@ def setweapondata():
                            8: [gunlance_mv, gunlance_cb, 'Gunlance'],
                            9: [switchaxe_mv, switchaxe_cb, 'Switch Axe'],
                            10: [chargeblade_mv, chargeblade_cb, 'Charge Blade'],
-                           11: [insectglaive_mv, insectglaive_cb, 'Insect Glaive']}
+                           11: [insectglaive_mv, insectglaive_cb, 'Insect Glaive'],
+                           12: [lightbowgun_mv, lightbowgun_cb, 'Light Bowgun'],
+                           13: [heavybowgun_mv, heavybowgun_cb, 'Heavy Bowgun']}
 
     # Weapons hard coded values
 
@@ -84,6 +92,8 @@ def setweapondata():
     bloaters.append(5.2)
     crit_elems.append(1.25)
 
+    # TODO Bow: Wall Climb Power Shot
+    # Not sure why 35x7
     # Bow: Index 2
     motionvalues.append(0.08)
     bloaters.append(1.2)
@@ -99,6 +109,7 @@ def setweapondata():
     bloaters.append(3.3)
     crit_elems.append(1.25)
 
+    # TODO Sword and Shield: Implement Sever+Blunt Attacks
     # Sword and Shield: Index 5
     motionvalues.append(0.14)
     bloaters.append(1.4)
@@ -136,16 +147,31 @@ def setweapondata():
     bloaters.append(3.1)
     crit_elems.append(1.25)
 
+    # TODO Light Bowgun: Ammo Damage + Elemental Ammo Crit
+    # Light Bowgun: Index 12
+    motionvalues.append(0.1)
+    bloaters.append(1.3)
+    crit_elems.append(1.25)
+
+    # TODO Heavy Bowgun: Ammo Damage + Elemental Ammo Crit
+    # Heavy Bowgun: Index 12
+    motionvalues.append(0.1)
+    bloaters.append(1.5)
+    crit_elems.append(1.25)
+
 
 def setmonsterdata():
     greatjagras_def = pd.read_csv('./files/monsters/greatjagras_def.csv', sep=';')
     greatjagras_logo = PhotoImage(file='./files/monsters/logos/greatjagras_logo.png')
+    greatjagras_cb = ttk.Combobox()
     kuluyaku_def = pd.read_csv('./files/monsters/kuluyaku_def.csv', sep=';')
     kuluyaku_logo = PhotoImage(file='./files/monsters/logos/kuluyaku_logo.png')
+    kuluyaku_cb = ttk.Combobox()
     pukeipukei_def = pd.read_csv('./files/monsters/pukeipukei_def.csv', sep=';')
     pukeipukei_logo = PhotoImage(file='./files/monsters/logos/pukeipukei_logo.png')
+    pukeipukei_cb = ttk.Combobox()
 
     global monsterdatastructure
-    monsterdatastructure = {0: ['Great Jagras', greatjagras_def, greatjagras_logo],
-                            1: ['Kulu Yaku', kuluyaku_def, kuluyaku_logo],
-                            2: ['Pukei Pukei', pukeipukei_def, pukeipukei_logo]}
+    monsterdatastructure = {0: ['Great Jagras', greatjagras_def, greatjagras_logo, greatjagras_cb],
+                            1: ['Kulu Yaku', kuluyaku_def, kuluyaku_logo, kuluyaku_cb],
+                            2: ['Pukei Pukei', pukeipukei_def, pukeipukei_logo, pukeipukei_cb]}

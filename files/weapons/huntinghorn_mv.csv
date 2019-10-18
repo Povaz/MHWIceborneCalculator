@@ -1,14 +1,14 @@
-Name;Attack 1;Attack 2
-Right Swing;27
-Left Swing;22
-Forward Swing;28
-Backward Slam;34
-Handle Poke	Sever	10
-Forward Slam;14;39
-Double Right Swing;15;22
-Performance;29
-Encore;35
-Shockwave;27
-Jumping Smash;35
-Jumping Strong Overhead Smash;55
-Mid-air Performance;35
+Name;Type;Attack 1;Attack 2
+Right Swing;Blunt;27
+Left Swing;Blunt;22
+Forward Swing;Blunt;28
+Backward Slam;Blunt;34
+Handle Poke;Sever;10
+Forward Slam;Blunt;14;39
+Double Right Swing;Blunt;15;22
+Performance;Blunt;29
+Encore;Blunt;35
+Shockwave;Blunt;27
+Jumping Smash;Blunt;35
+Jumping Strong Overhead Smash;Blunt;55
+Mid-air Performance;Blunt;35

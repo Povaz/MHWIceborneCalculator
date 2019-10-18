@@ -1,22 +1,22 @@
-Name;Attack 1;Attack 2;Attack 3
-Mid Thrust I;20
-Mid Thrust II;20
-Mid Thrust III;27
-High Thrust I;22
-High Thrust II;22
-High Thrust III;27
-Wide Sweep I;20
-Wide Sweep II;20
-Wide Sweep III;20
-Counter Thrust;40
-Cancel Thrust;22
-Guard Thrust;20
-Dash Attack;11
-Mid-Air Dash Attack;25
-Reverse Attack;50
-Advancing Jump Thrust;50
-Finishing Thrust;50
-Finishing Twin Thrust;25;50
-Shield Attack;14
-Leaping Thrust;8;3;3
-Jumping Thrust;30
+Name;Type;Attack 1;Attack 2;Attack 3
+Mid Thrust I;Sever;20
+Mid Thrust II;Sever;20
+Mid Thrust III;Sever;27
+High Thrust I;Sever;22
+High Thrust II;Sever;22
+High Thrust III;Sever;27
+Wide Sweep I;Sever;20
+Wide Sweep II;Sever;20
+Wide Sweep III;Sever;20
+Counter Thrust;Sever;40
+Cancel Thrust;Sever;22
+Guard Thrust;Sever;20
+Dash Attack;Sever;11
+Mid-Air Dash Attack;Sever;25
+Reverse Attack;Sever;50
+Advancing Jump Thrust;Sever;50
+Finishing Thrust;Sever;50
+Finishing Twin Thrust;Sever;25;50
+Shield Attack;Sever;14
+Leaping Thrust;Sever;8;3;3
+Jumping Thrust;Sever;30

@@ -9,14 +9,13 @@ def create_coloredbutton_grid(containerwidget, row, column, color, sticky):
     return button
 
 
-def create_imagebutton_grid(containerwidget, image, button_height, button_width, row, column):
-    # Resize the Image according to button size
+# Creates a Button in containerwidght, at position (row,column) of the Grid, with height 'button_height' and
+# width 'button_width' and with a resized image 'image'
+def create_imagebutton_grid(containerwidget, image, button_height, button_width, pad, row, column):
     image = image.subsample(image.height() // button_height, image.width() // button_width)
-
-    # Create the Button
     button = Button(containerwidget, image=image)
     button.image = image
-    button.grid(row=row, column=column)
+    button.grid(row=row, column=column, padx=pad, pady=pad)
     button.config(height=button_height, width=button_width)
     return button
 

@@ -1,21 +1,21 @@
-Name;Attack 1;Attack 2;Attack 3;Attack 4;Attack 5;Attack 6
-Leaping Slash;26
-Rising Slash Combo;16;14
-Wide Sweep;22
-Overhead Smash;30
-Thrust;10
-Reaping Slash;18
-Double Slash;18;24
-Strong Rising Slash Combo;16;14;15
-Strong Wide Sweep;18;26
-Tornado Slash;24;42
-Strong Thrust;12;11
-Strong Reaping Slash;15;19
-Strong Double Slash;16;14;28
-Dodge Slash;17
-Jumping Slash;15
-Strong Jumping Slash;10
-Jumping Advancing Slash;28
-Strong Jumping Advancing Slash;6;4;7;4;3;32
-Kinsect (Mark Target);5
-Kinsect: Harvest Extract;20
+Name;Type;Attack 1;Attack 2;Attack 3;Attack 4;Attack 5;Attack 6
+Leaping Slash;Sever;26
+Rising Slash Combo;Sever;16;14
+Wide Sweep;Sever;22
+Overhead Smash;Sever;30
+Thrust;Sever;10
+Reaping Slash;Sever;18
+Double Slash;Sever;18;24
+Strong Rising Slash Combo;Sever;16;14;15
+Strong Wide Sweep;Sever;18;26
+Tornado Slash;Sever;24;42
+Strong Thrust;Sever;12;11
+Strong Reaping Slash;Sever;15;19
+Strong Double Slash;Sever;16;14;28
+Dodge Slash;Sever;17
+Jumping Slash;Sever;15
+Strong Jumping Slash;Sever;10
+Jumping Advancing Slash;Sever;28
+Strong Jumping Advancing Slash;Sever;6;4;7;4;3;32
+Kinsect (Mark Target);Blunt;5
+Kinsect: Harvest Extract;Blunt;20

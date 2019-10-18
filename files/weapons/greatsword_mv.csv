@@ -1,36 +1,36 @@
-Name; Attack 1; Attack 2
-Charged Slash Lv1;48
-Charged Slash Lv2;77
-Charged Slash Lv3;105
-Charged Slash Lv4;77
-Overhead Slash;48
-Strong Charged Slash Lv1;65
-Strong Charged Slash Lv2;90
-Strong Charged Slash Lv3;115
-Strong Charged Slash Lv4;90
-True Charged Slash Lv1;15;165
-True Charged Slash Lv2;20;182
-True Charged Slash Lv3;22;211
-True Charged Slash Lv4;20;182
-Wide Slash;26
-Rising Slash;38
-Side Blow	Blunt;16
-Tackle Lv1	Blunt;26
-Tackle Lv2	Blunt;35
-Tackle Lv3	Blunt;48
-Jumping Wide Slash Lv1;71
-Jumping Wide Slash Lv2;85
-Jumping Wide Slash Lv3;110
-Jumping Slash;70
-Midair Charged Slash Lv1;70
-Midair Charged Slash Lv2;92
-Midair Charged Slash Lv3;106
-Strong Wide Slash Lv1;59
-Strong Wide Slash Lv2;66
-Strong Wide Slash Lv3;78
-Charged Rising Slash Lv1;48
-Charged Rising Slash Lv2;72
-Charged Rising Slash Lv3;98
-Plunging Thrust Lv1;16
-Plunging Thrust Lv2;22
-Plunging Thrust Lv3;27
+Name;Type; Attack 1; Attack 2
+Charged Slash Lv1;Sever;48
+Charged Slash Lv2;Sever;77
+Charged Slash Lv3;Sever;105
+Charged Slash Lv4;Sever;77
+Overhead Slash;Sever;48
+Strong Charged Slash Lv1;Sever;65
+Strong Charged Slash Lv2;Sever;90
+Strong Charged Slash Lv3;Sever;115
+Strong Charged Slash Lv4;Sever;90
+True Charged Slash Lv1;Sever;15;165
+True Charged Slash Lv2;Sever;20;182
+True Charged Slash Lv3;Sever;22;211
+True Charged Slash Lv4;Sever;20;182
+Wide Slash;Sever;26
+Rising Slash;Sever;38
+Side Blow;Blunt;16
+Tackle Lv1;Blunt;26
+Tackle Lv2;Blunt;35
+Tackle Lv3;Blunt;48
+Jumping Wide Slash Lv1;Sever;71
+Jumping Wide Slash Lv2;Sever;85
+Jumping Wide Slash Lv3;Sever;110
+Jumping Slash;Sever;70
+Midair Charged Slash Lv1;Sever;70
+Midair Charged Slash Lv2;Sever;92
+Midair Charged Slash Lv3;Sever;106
+Strong Wide Slash Lv1;Sever;59
+Strong Wide Slash Lv2;Sever;66
+Strong Wide Slash Lv3;Sever;78
+Charged Rising Slash Lv1;Sever;48
+Charged Rising Slash Lv2;Sever;72
+Charged Rising Slash Lv3;Sever;98
+Plunging Thrust Lv1;Sever;16
+Plunging Thrust Lv2;Sever;22
+Plunging Thrust Lv3;Sever;27

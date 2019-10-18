@@ -1,27 +1,26 @@
-
-Name;Attack 1;Attack 2
-Chop;14
-Side Slash;13
-Sword/Shield Combo;10;20
-Spiral Slash (Right);16
-Spiral Slash (Left);16
-Spiral Slash (Back);17
-Thrust;22
-Lateral Slash;22
-Return Stroke;21
-Advancing Slash;18
-Short Shield Bash;6
-Round Slash;30
-Shield Attack;8
-Shield Bash;16
-Hard Bash;31
-Sliding Slash;10;35
-Guard Slash;14
-Rising Slash;14
-Charged Slash;29;40
-Scaling Slash;15
-Jumping Slash;20
-Falling Bash;39
-Jumping Rising Slash;20
-Jumping Advancing Slash;18
-Helm Breaker;20
+Name;Type;Attack 1;Attack 2
+Chop;Sever;14
+Side Slash;Sever;13
+Sword/Shield Combo;Sever;10;20
+Spiral Slash (Right);Sever;16
+Spiral Slash (Left);Sever;16
+Spiral Slash (Back);Sever;17
+Thrust;Sever;22
+Lateral Slash;Sever;22
+Return Stroke;Sever;21
+Advancing Slash;Sever;18
+Short Shield Bash;Sever;6
+Round Slash;Sever;30
+Shield Attack;Sever;8
+Shield Bash;Sever;16
+Hard Bash;Sever;31
+Sliding Slash;Sever;10;35
+Guard Slash;Sever;14
+Rising Slash;Sever;14
+Charged Slash;Sever;29;40
+Scaling Slash;Sever;15
+Jumping Slash;Sever;20
+Falling Bash;Blunt;39
+Jumping Rising Slash;Sever;20
+Jumping Advancing Slash;Sever;18
+Helm Breaker;Sever;20

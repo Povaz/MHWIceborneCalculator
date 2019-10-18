@@ -1,47 +1,47 @@
-Name;Attack 1
-Melee Attack;30
-Jumping Reload;30
-Wyvernheart Shot;9
-Wyvernsnipe Shot(multiple times);20
-Wyvernsnipe Explosion (S) (per Wyvernsnipe Hit)	;38
-Wyvernsnipe Explosion (M) (per Wyvernsnipe Hit)	;49
-Wyvernsnipe Explosion (L) (per Wyvernsnipe Hit)	;81
-Normal 1;10
-Normal 2;20
-Normal 3;32
-Pierce 1;7
-Pierce 2;7
-Pierce 3;8
-Spread 1;6
-Spread 2;7
-Spread 3;8
-Sticky 1;12
-Sticky 2;16
-Sticky 3;19
-Sticky Projectile;1
-Cluster Bomb 1;19
-Cluster Bomb 2;22
-Cluster Bomb 3;28
-Cluster Projectile;1
-Recover 1;0
-Recover 2;0
-Poison 1;1
-Poison 2;1
-Paralysis 1;1
-Paralysis 2;1
-Sleep 1;1
-Sleep 2;1
-Exhaust 1;1
-Exhaust 2;1
-Flaming;5
-Water;5
-Freeze;5
-Thunder;5
-Dragon;2
-Slicing Projectile;1
-Slicing;6
-Wyvern (Primary);70
-Wyvern (Additional);16
-Demon;0
-Armor;0
-Tranq;0
+Name;Type;Attack 1
+Melee Attack;Blunt;30
+Jumping Reload;Blunt;30
+Wyvernheart Shot;Shot;9
+Wyvernsnipe Shot(multiple times);Shot;20
+Wyvernsnipe Explosion (S) (per Wyvernsnipe Hit);Blunt;38
+Wyvernsnipe Explosion (M) (per Wyvernsnipe Hit;Blunt;49
+Wyvernsnipe Explosion (L) (per Wyvernsnipe Hit);Blunt;81
+Normal 1;Shot;10
+Normal 2;Shot;20
+Normal 3;Shot;32
+Pierce 1;Shot;7
+Pierce 2;Shot;7
+Pierce 3;Shot;8
+Spread 1;Shot;6
+Spread 2;Shot;7
+Spread 3;Shot;8
+Sticky 1;Shot;12
+Sticky 2;Shot;16
+Sticky 3;Shot;19
+Sticky Projectile;Shot;1
+Cluster Bomb 1;Shot;19
+Cluster Bomb 2;Shot;22
+Cluster Bomb 3;Shot;28
+Cluster Projectile;Shot;1
+Recover 1;Shot;0
+Recover 2;Shot;0
+Poison 1;Shot;1
+Poison 2;Shot;1
+Paralysis 1;Shot;1
+Paralysis 2;Shot;1
+Sleep 1;Shot;1
+Sleep 2;Shot;1
+Exhaust 1;Shot;1
+Exhaust 2;Shot;1
+Flaming;Fire;5
+Water;Fire;5
+Freeze;Ice;5
+Thunder;Thunder;5
+Dragon;Dragon;2
+Slicing Projectile;Shot;1
+Slicing;Shot;6
+Wyvern (Primary);Shot;70
+Wyvern (Additional);Shot;16
+Demon;Shot;0
+Armor;Shot;0
+Tranq;Shot;0

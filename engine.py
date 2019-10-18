@@ -24,6 +24,7 @@ def damageoutput(motionvalue, bloater, rawdam_entry, elemdam_entry, rawsharp_ent
     else:
         elemental_affinity = 1
 
+    # Final Damage Computation:
     phystotal = (rawdam_value * affinity_multiplier * rawsharp_value * motionvalue * globals.rawweak) / bloater
     elemtotal = ((elemdam_value/10) * elemental_affinity * elemsharp_value * (1 + globals.elemweak))
     truedamage = phystotal + elemtotal
@@ -46,14 +47,14 @@ def setsharpness(color, rawsharp, elemsharp):
 
 def fetch_mv(attackname, attackdata):
     temp = attackdata.loc[attackdata['Name'] == attackname]
-    mv = temp.iloc[:, 1:].sum(1)
+    mv = temp.iloc[:, 2:].sum(1)
     return mv.item() / 100
 
 
 def fetch_first_mv(weapon):
     weapondata = globals.weapondatastructure.get(weapon)[0]
     temp = weapondata.iloc[0, :]
-    mv = temp.iloc[1:].sum()
+    mv = temp.iloc[2:].sum()
     return mv.item() / 100
 
 
@@ -128,10 +129,36 @@ def setweapon(tickboxes, i):
                 globals.weapondatastructure.get(i)[1].config(state='disabled')
 
 
-def callback(eventObject):
+def lambda_setmonster(buttons, i):
+    return lambda: setmonster(buttons, i)
+
+
+def setmonster(buttons, i):
+    for j in range(len(buttons)):
+        if j != i:
+            globals.monsterdatastructure.get(j)[3].config(state='disabled')
+        else:
+            globals.current_monster = i
+            globals.monsterdatastructure.get(i)[3].config(state='readonly')
+
+
+def weapon_callback(eventObject):
     weapon = globals.current_weapon
     globals.current_attackname = globals.weapondatastructure.get(weapon)[1].get()
+
+    weapondata = globals.weapondatastructure.get(weapon)[0]
+    attacktype = weapondata[weapondata.Name == globals.current_attackname].Type
+    globals.current_attacktype = attacktype.item()
+
     globals.motionvalues[weapon] = fetch_mv(globals.current_attackname, globals.weapondatastructure.get(weapon)[0])
     globals.current_motionvalue = globals.motionvalues[weapon]
     print(globals.weapondatastructure.get(weapon)[2] + ': ' + globals.current_attackname
-          + " (" + str(globals.motionvalues[weapon]) + ") is selected")
+          + " (" + str(globals.motionvalues[weapon]) + ", " + globals.current_attacktype + ") is selected")
+
+
+def monster_callback(eventObject):
+    monster = globals.current_monster
+    globals.current_partname = globals.monsterdatastructure.get(monster)[3].get()
+
+    monsterdata = globals.monsterdatastructure.get(globals.current_monster)[1]
+    globals.rawweak = monsterdata[monsterdata.Part == globals.current_partname][globals.current_attacktype].item() / 100

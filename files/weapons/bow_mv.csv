@@ -1,14 +1,23 @@
-﻿Name;Attack 1;Attack 2;Attack 3;Attack 4;Attack 5
-Shoot;8;0;0;0;0
-Charge I;10;10;0;0;0
-Charge II;11;11;11;0;0
-Quick Shot;6;6;6;0;0
-Charge Step Power Shot;13;13;13;13;13
-Diving Melee Attack;35;0;0;0;0
-Jump Melee Attack;5;0;0;0;0
-High-Angle Shot (Single);6;0;0;0;0
-Charge I High-Angle Shot (Single);8;0;0;0;0
-Charge II High-Angle Shot (Single);42;0;0;0;0
-Wyvern's Arrow (Single);23;0;0;0;0
-Charge I Wyvern's Arrow (Single);24;0;0;0;0
-Charge II Wyvern's Arrow (Single);26;0;0;0;0
+Name;Type;Attack 1
+Charged Shot (Lv 1);Shot;7
+Charged Shot (Lv 2);Shot;20
+Charged Shot (Lv 3);Shot;33
+Charged Shot (Lv 4);Shot;36
+Power Shot (Lv 1);Shot;18
+Power Shot (Lv 2);Shot;27
+Power Shot (Lv 3);Shot;55
+Power Shot (Lv 4);Shot;78
+Arc Shot (Lv 1);Shot;6
+Arc Shot (Lv 2);Shot;16
+Arc Shot (Lv 3);Shot;28
+Arc Shot (Lv 4);Shot;28
+Dragon Piercer (Lv 1);Shot;190
+Dragon Piercer (Lv 2);Shot;200
+Dragon Piercer (Lv 3);Shot;230
+Quick Shot;Shot;18
+Lunging Melee Attack;Sever;35
+Wall Climb Power Shot;Sever;35
+Jumping Melee Attack;Sever;10
+Mid-air Charged Shot (Lv 1);Shot;7
+Mid-air Charged Shot (Lv 2);Shot;20
+Mid-air Charged Shot (Lv 3);Shot;33

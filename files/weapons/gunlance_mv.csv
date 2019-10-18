@@ -1,11 +1,11 @@
-Name;Attack 1
-Lunging Upthrust;30
-Lateral Thrust I, II, III;24
-Rising Slash;30
-Overhead Smash;48
-Wide Sweep;68
-Guard Thrust I, II, III;18
-Jumping Thrust;25
-Jumping Reload Smash;44
-Jumping Smash;44
-Jumping Rising Slash;35
+Name;Type;Attack 1
+Lunging Upthrust;Sever;30
+Lateral Thrust I, II, III;Sever;24
+Rising Slash;Sever;30
+Overhead Smash;Sever;48
+Wide Sweep;Sever;68
+Guard Thrust I, II, III;Sever;18
+Jumping Thrust;Sever;25
+Jumping Reload Smash;Sever;44
+Jumping Smash;Sever;44
+Jumping Rising Slash;Sever;35

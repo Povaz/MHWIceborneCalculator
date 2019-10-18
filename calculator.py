@@ -1,6 +1,5 @@
 from tkinter import *
 from tkinter import ttk
-from PIL import Image
 import globals
 import utils
 import engine
@@ -84,7 +83,7 @@ def manageleftframe():
         globals.weapondatastructure.get(i)[1] = ttk.Combobox(leftframe, values=namelist, state='disabled', width=35)
         globals.weapondatastructure.get(i)[1].grid(row=row + 1, column=column, sticky=W)
         globals.weapondatastructure.get(i)[1].current(0)
-        globals.weapondatastructure.get(i)[1].bind("<<ComboboxSelected>>", engine.callback)
+        globals.weapondatastructure.get(i)[1].bind("<<ComboboxSelected>>", engine.weapon_callback)
 
 
 def managerightframe():
@@ -132,14 +131,24 @@ def manangebottomframe():
     columns = 5
     button_height = 100
     button_width = 100
+    pad = 10
     monsterbuttons = []
     for key in globals.monsterdatastructure:
-        row = key // columns
+        button_row = (key // columns)*2
+        combobox_row = (key // columns)*2 + 1
         column = key % columns
         image = globals.monsterdatastructure.get(key)[2]
 
-        button = utils.create_imagebutton_grid(bottomframe, image, button_height, button_width, row, column)
+        button = utils.create_imagebutton_grid(bottomframe, image, button_height, button_width, pad, button_row, column)
         monsterbuttons.append(button)
+        monsterbuttons[key].config(command=engine.lambda_setmonster(monsterbuttons, key))
+
+        namelist = globals.monsterdatastructure.get(key)[1]['Part'].tolist()
+        globals.monsterdatastructure.get(key)[3] = ttk.Combobox(bottomframe, values=namelist, state='disabled', width=15)
+        globals.monsterdatastructure.get(key)[3].grid(row=combobox_row, column=column, sticky=W, padx=pad)
+        globals.monsterdatastructure.get(key)[3].current(0)
+        globals.monsterdatastructure.get(key)[3].bind("<<ComboboxSelected>>", engine.monster_callback)
+
 
 window = Tk()
 window.title("Monster Hunter World: Iceborne Calculator")
