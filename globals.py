@@ -69,7 +69,8 @@ def setweapondata():
                            7: [lance_mv, lance_cb, 'Lance'],
                            8: [gunlance_mv, gunlance_cb, 'Gunlance'],
                            9: [switchaxe_mv, switchaxe_cb, 'Switch Axe'],
-                           10: [chargeblade_mv, chargeblade_cb, 'Charge Blade']}
+                           10: [chargeblade_mv, chargeblade_cb, 'Charge Blade'],
+                           11: [insectglaive_mv, insectglaive_cb, 'Insect Glaive']}
 
     # Weapons hard coded values
 
@@ -128,6 +129,11 @@ def setweapondata():
     # Charge Blade: Index 10
     motionvalues.append(0.2)
     bloaters.append(3.6)
+    crit_elems.append(1.25)
+
+    # Insect Glaive: Index 11
+    motionvalues.append(0.26)
+    bloaters.append(3.1)
     crit_elems.append(1.25)
 
 

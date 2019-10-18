@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import ttk
+from PIL import Image
 import globals
 import utils
 import engine
@@ -13,15 +14,15 @@ def managecenterframe():
     elemdam = DoubleVar()
     rawsharp = DoubleVar()
     elemsharp = DoubleVar()
-    rawdam_entry = utils.create_labelentrygrid(centerframe, 0, 0, 3, rawdam, "Raw Damage Value: ")
-    elemdam_entry = utils.create_labelentrygrid(centerframe, 1, 0, 3, elemdam, "Elemental Damage Value: ")
-    rawsharp_entry = utils.create_labelentrygrid(centerframe, 2, 0, 3, rawsharp, "Physical Sharpness Factor: ")
-    elemsharp_entry = utils.create_labelentrygrid(centerframe, 3, 0, 3, elemsharp, "Elemental Sharpness Factor: ")
+    rawdam_entry = utils.create_labelentry_grid(centerframe, 0, 0, 3, rawdam, "Raw Damage Value: ")
+    elemdam_entry = utils.create_labelentry_grid(centerframe, 1, 0, 3, elemdam, "Elemental Damage Value: ")
+    rawsharp_entry = utils.create_labelentry_grid(centerframe, 2, 0, 3, rawsharp, "Physical Sharpness Factor: ")
+    elemsharp_entry = utils.create_labelentry_grid(centerframe, 3, 0, 3, elemsharp, "Elemental Sharpness Factor: ")
 
     sharpnessbuttons(rawsharp, elemsharp, 4)
 
     aff = DoubleVar()
-    aff_entry = utils.create_labelentrygrid(centerframe, 5, 0, 3, aff, "Affinity Factor: ")
+    aff_entry = utils.create_labelentry_grid(centerframe, 5, 0, 3, aff, "Affinity Factor: ")
 
     button_calc = Button(centerframe,
                          text='Calculate You Lil Shit',
@@ -34,9 +35,9 @@ def managecenterframe():
     rawtruedam = DoubleVar()
     elemtruedam = DoubleVar()
     truedam = DoubleVar()
-    utils.create_labelentrygrid(centerframe, 7, 0, 3, rawtruedam, "Physical True Damage: ")
-    utils.create_labelentrygrid(centerframe, 8, 0, 3, elemtruedam, "Elemental True Damage: ")
-    utils.create_labelentrygrid(centerframe, 9, 0, 3, truedam, "Total True Damage: ")
+    utils.create_labelentry_grid(centerframe, 7, 0, 3, rawtruedam, "Physical True Damage: ")
+    utils.create_labelentry_grid(centerframe, 8, 0, 3, elemtruedam, "Elemental True Damage: ")
+    utils.create_labelentry_grid(centerframe, 9, 0, 3, truedam, "Total True Damage: ")
 
 
 def sharpnessbuttons(rawsharp, elemsharp, row):
@@ -44,7 +45,7 @@ def sharpnessbuttons(rawsharp, elemsharp, row):
     sharpbuttons = []
 
     for i in range(7):
-        button = utils.create_colored_buttongrid(centerframe, row, i, colors[i], sticky=N + S + E + W)
+        button = utils.create_coloredbutton_grid(centerframe, row, i, colors[i], sticky=N + S + E + W)
         sharpbuttons.append(button)
         sharpbuttons[i].config(command=engine.lambda_setsharpness(i, rawsharp, elemsharp))
 
@@ -100,7 +101,7 @@ def criticalboost():
     label.grid(row=0, column=0)
 
     for i in range(levels):
-        result = utils.create_checkboxgrid(rightframe, 0, i+1, "Lv" + str(i+1))
+        result = utils.create_checkbox_grid(rightframe, 0, i + 1, "Lv" + str(i + 1))
         checkboxes.append(result[0])
         variables.append(result[1])
         checkboxes[i].config(command=engine.lambda_apply_criticalboost(variables, i))
@@ -109,7 +110,7 @@ def criticalboost():
 def criticalelement():
     label = Label(rightframe, text="Critical Element:")
     label.grid(row=1, column=0)
-    result = utils.create_checkboxgrid(rightframe, 1, 1, "Lv" + str(1))
+    result = utils.create_checkbox_grid(rightframe, 1, 1, "Lv" + str(1))
     result[0].config(command=lambda: engine.apply_criticalelement(result[1]))
 
 
@@ -121,7 +122,7 @@ def criticaleye():
     label.grid(row=3, column=0)
 
     for i in range(levels):
-        result = utils.create_checkboxgrid(rightframe, 3, i+1, "Lv" + str(i+1))
+        result = utils.create_checkbox_grid(rightframe, 3, i + 1, "Lv" + str(i + 1))
         checkboxes.append(result[0])
         variables.append(result[1])
         checkboxes[i].config(command=engine.lambda_apply_criticaleye(variables, i))
@@ -129,13 +130,16 @@ def criticaleye():
 
 def manangebottomframe():
     columns = 5
+    button_height = 100
+    button_width = 100
+    monsterbuttons = []
     for key in globals.monsterdatastructure:
         row = key // columns
         column = key % columns
-        button = Button(bottomframe, image=globals.monsterdatastructure.get(key)[2])
-        button.grid(row=row, column=column)
-        button.config(height=100, width=100)
+        image = globals.monsterdatastructure.get(key)[2]
 
+        button = utils.create_imagebutton_grid(bottomframe, image, button_height, button_width, row, column)
+        monsterbuttons.append(button)
 
 window = Tk()
 window.title("Monster Hunter World: Iceborne Calculator")

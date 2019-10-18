@@ -3,14 +3,26 @@ from tkinter import *
 
 # Creates a colored Button in containerWidget, at position (row, column) of the Grid with sticky option
 # and returns the reference to that button:
-def create_colored_buttongrid(containerwidget, row, column, color, sticky):
+def create_coloredbutton_grid(containerwidget, row, column, color, sticky):
     button = Button(containerwidget, bg=color)
     button.grid(row=row, column=column, sticky=sticky)
     return button
 
 
+def create_imagebutton_grid(containerwidget, image, button_height, button_width, row, column):
+    # Resize the Image according to button size
+    image = image.subsample(image.height() // button_height, image.width() // button_width)
+
+    # Create the Button
+    button = Button(containerwidget, image=image)
+    button.image = image
+    button.grid(row=row, column=column)
+    button.config(height=button_height, width=button_width)
+    return button
+
+
 # Creates a Checkbox in containerWidget, at position (row, column) of the Grid with text 'text'
-def create_checkboxgrid(containerwidget, row, column, text):
+def create_checkbox_grid(containerwidget, row, column, text):
     variable = BooleanVar()
     variable.set(False)
     checkbox = Checkbutton(containerwidget, text=text, var=variable)
@@ -20,7 +32,7 @@ def create_checkboxgrid(containerwidget, row, column, text):
 
 # Creates a couple Label,Entry in containerWidget, in positions (row,column) and (row, column+columnspan)
 # respectively, with Label Text 'text' and Entry Variable 'entryvar'
-def create_labelentrygrid(containerwidget, row, column, columnspan, entryvar, text):
+def create_labelentry_grid(containerwidget, row, column, columnspan, entryvar, text):
     label = Label(containerwidget, text=text)
     label.grid(row=row, column=column, columnspan=3)
     entry = Entry(containerwidget, textvariable=entryvar)
