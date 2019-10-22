@@ -127,6 +127,7 @@ def setweapon(tickboxes, i):
                 globals.weapondatastructure.get(i)[1].config(state='readonly')
             else:
                 globals.weapondatastructure.get(i)[1].config(state='disabled')
+            set_weapondata()
 
 
 def lambda_setmonster(buttons, i):
@@ -140,9 +141,23 @@ def setmonster(buttons, i):
         else:
             globals.current_monster = i
             globals.monsterdatastructure.get(i)[3].config(state='readonly')
+            globals.current_partname = globals.monsterdatastructure.get(i)[3].get()
+            set_monsterdata()
+
+
+def lambda_setelement(element):
+    return lambda: setelement(element)
+
+
+def setelement(element):
+    globals.current_elementaltype = element
 
 
 def weapon_callback(eventObject):
+    set_weapondata()
+
+
+def set_weapondata():
     weapon = globals.current_weapon
     globals.current_attackname = globals.weapondatastructure.get(weapon)[1].get()
 
@@ -157,8 +172,17 @@ def weapon_callback(eventObject):
 
 
 def monster_callback(eventObject):
+    set_monsterdata()
+
+
+def set_monsterdata():
     monster = globals.current_monster
     globals.current_partname = globals.monsterdatastructure.get(monster)[3].get()
 
     monsterdata = globals.monsterdatastructure.get(globals.current_monster)[1]
     globals.rawweak = monsterdata[monsterdata.Part == globals.current_partname][globals.current_attacktype].item() / 100
+    globals.elemweak = monsterdata[monsterdata.Part == globals.current_partname][
+                           globals.current_elementaltype].item() / 100
+
+    print(globals.monsterdatastructure.get(monster)[0] + " (" + globals.current_partname + "): " + str(
+        globals.rawweak) + ", " + str(globals.elemweak))

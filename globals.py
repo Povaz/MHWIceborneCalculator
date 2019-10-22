@@ -1,3 +1,4 @@
+from enum import Enum
 from tkinter import *
 from tkinter import ttk
 import pandas as pd
@@ -9,7 +10,7 @@ monsterdatastructure = []
 current_monster = 0
 
 # Monster Parameters
-current_partname = 'Null'
+current_partname = 'Head'
 elemweak = 0.25
 rawweak = 0.7
 
@@ -25,7 +26,8 @@ motionvalues = []
 bloaters = []
 crit_elems = []
 current_attackname = 'Null'
-current_attacktype = 'Null'
+current_attacktype = 'Sever'
+current_elementaltype = 'Fire'
 current_motionvalue = 0.0
 current_bloater = 1.00
 current_rawsharp = 0.0
@@ -175,3 +177,4 @@ def setmonsterdata():
     monsterdatastructure = {0: ['Great Jagras', greatjagras_def, greatjagras_logo, greatjagras_cb],
                             1: ['Kulu Yaku', kuluyaku_def, kuluyaku_logo, kuluyaku_cb],
                             2: ['Pukei Pukei', pukeipukei_def, pukeipukei_logo, pukeipukei_cb]}
+

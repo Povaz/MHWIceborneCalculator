@@ -15,13 +15,16 @@ def managecenterframe():
     elemsharp = DoubleVar()
     rawdam_entry = utils.create_labelentry_grid(centerframe, 0, 0, 3, rawdam, "Raw Damage Value: ")
     elemdam_entry = utils.create_labelentry_grid(centerframe, 1, 0, 3, elemdam, "Elemental Damage Value: ")
-    rawsharp_entry = utils.create_labelentry_grid(centerframe, 2, 0, 3, rawsharp, "Physical Sharpness Factor: ")
-    elemsharp_entry = utils.create_labelentry_grid(centerframe, 3, 0, 3, elemsharp, "Elemental Sharpness Factor: ")
 
-    sharpnessbuttons(rawsharp, elemsharp, 4)
+    elementalbuttons()
+
+    rawsharp_entry = utils.create_labelentry_grid(centerframe, 3, 0, 3, rawsharp, "Physical Sharpness Factor: ")
+    elemsharp_entry = utils.create_labelentry_grid(centerframe, 4, 0, 3, elemsharp, "Elemental Sharpness Factor: ")
+
+    sharpnessbuttons(rawsharp, elemsharp, 5)
 
     aff = DoubleVar()
-    aff_entry = utils.create_labelentry_grid(centerframe, 5, 0, 3, aff, "Affinity Factor: ")
+    aff_entry = utils.create_labelentry_grid(centerframe, 6, 0, 3, aff, "Affinity Factor: ")
 
     button_calc = Button(centerframe,
                          text='Calculate You Lil Shit',
@@ -29,14 +32,30 @@ def managecenterframe():
                                                              rawdam_entry, elemdam_entry, rawsharp_entry,
                                                              elemsharp_entry, aff_entry, rawtruedam, elemtruedam,
                                                              truedam))
-    button_calc.grid(row=6, column=1, columnspan=4)
+    button_calc.grid(row=7, column=1, columnspan=4)
 
     rawtruedam = DoubleVar()
     elemtruedam = DoubleVar()
     truedam = DoubleVar()
-    utils.create_labelentry_grid(centerframe, 7, 0, 3, rawtruedam, "Physical True Damage: ")
-    utils.create_labelentry_grid(centerframe, 8, 0, 3, elemtruedam, "Elemental True Damage: ")
-    utils.create_labelentry_grid(centerframe, 9, 0, 3, truedam, "Total True Damage: ")
+    utils.create_labelentry_grid(centerframe, 8, 0, 3, rawtruedam, "Physical True Damage: ")
+    utils.create_labelentry_grid(centerframe, 9, 0, 3, elemtruedam, "Elemental True Damage: ")
+    utils.create_labelentry_grid(centerframe, 10, 0, 3, truedam, "Total True Damage: ")
+
+
+def elementalbuttons():
+    fire_logo = PhotoImage(file='./files/elements/fire_logo.png')
+    water_logo = PhotoImage(file='./files/elements/water_logo.png')
+    thunder_logo = PhotoImage(file='./files/elements/thunder_logo.png')
+    ice_logo = PhotoImage(file='./files/elements/ice_logo.png')
+    dragon_logo = PhotoImage(file='./files/elements/dragon_logo.png')
+
+    logos = [fire_logo, water_logo, thunder_logo, ice_logo, dragon_logo]
+    elements = ['Fire', 'Water', 'Thunder', 'Ice', 'Dragon']
+    elembuttons = []
+    for i in range(len(logos)):
+        button = utils.create_imagebutton_grid(centerframe, logos[i], 30, 30, 0, 2, i)
+        elembuttons.append(button)
+        elembuttons[i].config(command=engine.lambda_setelement(elements[i]))
 
 
 def sharpnessbuttons(rawsharp, elemsharp, row):
