@@ -9,24 +9,52 @@ def damageoutput(motionvalue, bloater, rawdam_entry, elemdam_entry, rawsharp_ent
     elemsharp_value = float(elemsharp_entry.get())
     aff_value = float(aff_entry.get())
 
+    # Critical Eye
     aff_value = aff_value + globals.criticaleye_value
 
+    # Critical Boost and negative affinity
     if aff_value < 0.0:
         critdamage = 0.75 + globals.criticalboost_value
         aff_value = - aff_value
     else:
         critdamage = 1.25 + globals.criticalboost_value
 
+    # Affinity Multiplier for Average Damage
     affinity_multiplier = ((1 - aff_value) + aff_value * critdamage)
 
+    # Elemental Affinity Multiplier for Average Damage
     if globals.criticalelement_active:
         elemental_affinity = ((1 - aff_value) + aff_value * globals.current_critelem)
     else:
         elemental_affinity = 1
 
+    # Check chosen Weapon:
+    if globals.current_attacktype == 'Null':
+        rawtruedam.set('Weapon Not Chosen')
+        elemtruedam.set('Weapon Not Chosen')
+        truedam.set('Weapon Not Chosen')
+        return 1
+
+    # Check chosen Element:
+    if globals.current_elementaltype == 'Null':
+        rawtruedam.set('Element Not Chosen')
+        elemtruedam.set('Element Not Chosen')
+        truedam.set('Element Not Chosen')
+        return 2
+
+    # Select correct Raw/Elemental defense:
+    if globals.monster_defenses_raw.empty or globals.monster_defenses_raw.empty:
+        rawtruedam.set('Monster/Monster Part Not Chosen')
+        elemtruedam.set('Monster/Monster Part Not Chosen')
+        truedam.set('Monster/Monster Part Not Chosen')
+        return 3
+    else:
+        raw_weakness = globals.monster_defenses_raw[globals.current_attacktype].item() / 100
+        elem_weakness = globals.monster_defenses_elem[globals.current_elementaltype].item() / 100
+
     # Final Damage Computation:
-    phystotal = (rawdam_value * affinity_multiplier * rawsharp_value * motionvalue * globals.rawweak) / bloater
-    elemtotal = ((elemdam_value/10) * elemental_affinity * elemsharp_value * (1 + globals.elemweak))
+    phystotal = (rawdam_value * affinity_multiplier * rawsharp_value * motionvalue * raw_weakness) / bloater
+    elemtotal = ((elemdam_value/10) * elemental_affinity * elemsharp_value * (1 + elem_weakness))
     truedamage = phystotal + elemtotal
 
     rawtruedam.set(str(round(phystotal, 4)))
@@ -180,9 +208,6 @@ def set_monsterdata():
     globals.current_partname = globals.monsterdatastructure.get(monster)[3].get()
 
     monsterdata = globals.monsterdatastructure.get(globals.current_monster)[1]
-    globals.rawweak = monsterdata[monsterdata.Part == globals.current_partname][globals.current_attacktype].item() / 100
-    globals.elemweak = monsterdata[monsterdata.Part == globals.current_partname][
-                           globals.current_elementaltype].item() / 100
 
-    print(globals.monsterdatastructure.get(monster)[0] + " (" + globals.current_partname + "): " + str(
-        globals.rawweak) + ", " + str(globals.elemweak))
+    globals.monster_defenses_raw = monsterdata[monsterdata.Part == globals.current_partname][["Sever", "Blunt", "Ranged"]]
+    globals.monster_defenses_elem = monsterdata[monsterdata.Part == globals.current_partname][["Fire", "Water", "Thunder", "Ice", "Dragon"]]

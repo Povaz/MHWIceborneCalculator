@@ -11,8 +11,8 @@ current_monster = 0
 
 # Monster Parameters
 current_partname = 'Head'
-elemweak = 0.25
-rawweak = 0.7
+monster_defenses_raw = pd.DataFrame()
+monster_defenses_elem = pd.DataFrame()
 
 # Skills Parameters
 criticalboost_value = 0.0
@@ -26,8 +26,8 @@ motionvalues = []
 bloaters = []
 crit_elems = []
 current_attackname = 'Null'
-current_attacktype = 'Sever'
-current_elementaltype = 'Fire'
+current_attacktype = 'Null'
+current_elementaltype = 'Null'
 current_motionvalue = 0.0
 current_bloater = 1.00
 current_rawsharp = 0.0
