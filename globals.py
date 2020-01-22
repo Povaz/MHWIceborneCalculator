@@ -11,8 +11,8 @@ current_monster = 0
 
 # Monster Parameters
 current_partname = 'Head'
-monster_defenses_raw = pd.DataFrame()
-monster_defenses_elem = pd.DataFrame()
+monster_defenses_raw = 0.7      # Should be = pd.DataFrame()
+monster_defenses_elem = 0.3     # Should be = pd.DataFrame()
 
 # Skills Parameters
 criticalboost_value = 0.0

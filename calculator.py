@@ -147,6 +147,12 @@ def criticaleye():
 
 
 def manangebottomframe():
+    """
+    IMPLEMENTS SINGLE MONSTERS' PART: Function called by button still exists in the program
+    and will remain there until decision about this feature is made.
+
+    See also: damageoutput function in engine.py
+
     columns = 5
     button_height = 100
     button_width = 100
@@ -167,6 +173,7 @@ def manangebottomframe():
         globals.monsterdatastructure.get(key)[3].grid(row=combobox_row, column=column, sticky=W, padx=pad)
         globals.monsterdatastructure.get(key)[3].current(0)
         globals.monsterdatastructure.get(key)[3].bind("<<ComboboxSelected>>", engine.monster_callback)
+    """
 
 
 window = Tk()

@@ -42,8 +42,12 @@ def damageoutput(motionvalue, bloater, rawdam_entry, elemdam_entry, rawsharp_ent
         truedam.set('Element Not Chosen')
         return 2
 
+    """
+    IMPLEMENTS SINGLE MONSTERS' PART: Function called by button still exists in the program
+    and will remain there until decision about this feature is made.
+    
     # Select correct Raw/Elemental defense:
-    if globals.monster_defenses_raw.empty or globals.monster_defenses_raw.empty:
+    if globals.monster_defenses_raw.empty or globals.monster_defenses_elem.empty:
         rawtruedam.set('Monster/Monster Part Not Chosen')
         elemtruedam.set('Monster/Monster Part Not Chosen')
         truedam.set('Monster/Monster Part Not Chosen')
@@ -51,6 +55,11 @@ def damageoutput(motionvalue, bloater, rawdam_entry, elemdam_entry, rawsharp_ent
     else:
         raw_weakness = globals.monster_defenses_raw[globals.current_attacktype].item() / 100
         elem_weakness = globals.monster_defenses_elem[globals.current_elementaltype].item() / 100
+    """
+
+    # Fix up Code for Monster Defense:
+    raw_weakness = globals.monster_defenses_raw
+    elem_weakness = globals.monster_defenses_elem
 
     # Final Damage Computation:
     phystotal = (rawdam_value * affinity_multiplier * rawsharp_value * motionvalue * raw_weakness) / bloater
